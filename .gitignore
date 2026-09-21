@@ -1,0 +1,22 @@
+# Secrets and credentials
+.env
+*.pem
+*.key
+*.p12
+credentials
+.aws/
+
+# Generated data
+ecommerce_data/
+*.csv
+*.parquet
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Local tools and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
