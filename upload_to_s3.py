@@ -9,7 +9,8 @@ from dotenv import load_dotenv
 # Load environment variables
 # =========================
 
-ENV_PATH = r"D:\Samsung\Projects\AWS_Project_1\.env"
+ENV_PATH = os.getenv("ENV_PATH", ".env")
+
 
 load_dotenv(ENV_PATH, override=True)
 
