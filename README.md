@@ -83,3 +83,65 @@ processed/ecommerce/
         ├── category_sales
         └── monthly_sales
 
+
+## Architecture
+
+```mermaid
+flowchart TD
+    A[Local Python Data Generator] --> B[12 CSV Files]
+    B --> C[Amazon S3 Raw Layer]
+
+    C --> D[AWS Glue PySpark Notebook]
+
+    D --> E[Read and Profile]
+    E --> F[Data Cleaning]
+    F --> G[Data Type Transformation]
+    G --> H[Business Transformations]
+    H --> I[Window Functions]
+    I --> J[Analytical Joins]
+    J --> K[Aggregations and Advanced Analytics]
+
+    K --> L[Parquet with Snappy Compression]
+    L --> M[Amazon S3 Processed Layer]
+
+    M --> N[customers]
+    M --> O[products]
+    M --> P[categories]
+    M --> Q[orders]
+    M --> R[order_details]
+    M --> S[fact_sales]
+    M --> T[customer_sales]
+    M --> U[product_sales]
+    M --> V[category_sales]
+    M --> W[monthly_sales]
+
+
+Local Python Generator
+        |
+        v
+CSV Files
+        |
+        v
+S3 Raw Layer
+raw/ecommerce/
+        |
+        v
+AWS Glue + PySpark
+        |
+        +-- Read and Profile
+        +-- Data Cleaning
+        +-- Type Transformation
+        +-- Business Transformations
+        +-- Window Functions
+        +-- Joins
+        +-- Aggregations
+        |
+        v
+Parquet + Snappy
+        |
+        v
+S3 Processed Layer
+processed/ecommerce/
+
+
+
