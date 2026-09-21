@@ -52,3 +52,34 @@ Raw data:
 
 ```text
 s3://mahmoud-sic-ecommerce-2026/raw/ecommerce/
+
+
+Local Data Generator
+        │
+        ▼
+CSV Files
+        │
+        ▼
+S3 Raw Layer
+raw/ecommerce/
+        │
+        ▼
+AWS Glue + PySpark
+        │
+        ├── Profiling
+        ├── Cleaning
+        ├── Type Transformation
+        ├── Business Logic
+        ├── Joins
+        └── Aggregations
+        │
+        ▼
+S3 Processed Layer
+processed/ecommerce/
+        │
+        ├── fact_sales
+        ├── customer_sales
+        ├── product_sales
+        ├── category_sales
+        └── monthly_sales
+
